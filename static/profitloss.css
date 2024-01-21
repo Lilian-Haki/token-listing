@@ -1,0 +1,89 @@
+body{
+    background: linear-gradient(#0e0101, #050000) ;
+}
+.cryptoprofitcalc{
+  text-align: justify;
+}
+.cryptoprofitcalc h1{
+    text-align: center;
+   color: rgb(82, 3, 3);
+   font-size: 30px;
+   margin-top: 20px;
+   font-weight: bold;
+}
+.cryptoprofitcalc h2{
+    text-align: center;
+    color: rgb(109, 93, 93);
+    font-size: 20px;
+}
+.token-name{
+    display: inline-flex;
+    padding: 5px;
+    height: 80px;
+    width: 180px;
+}
+.token-name img{
+    width: 70px;
+    height: 70px;
+    padding: 10px;
+}
+.token-name a{
+    text-decoration: none;
+}
+.token-name span{
+    color: blanchedalmond;
+    
+}
+.tokens{
+display: flex;
+margin-left: 90px;
+}
+.calculator{
+    border-radius: 10%;
+    height: 300px;
+    width: 700px;
+    background-color: #000000;
+    margin-left: 70px;
+    padding: 30px;
+}
+.calculator label{
+    padding: 5px;
+}
+.calculator label,
+ span{
+    color: aliceblue;
+}
+.calculator .input1{
+    width: 600px;
+}
+.investment {
+    height: 300px;
+    width: 400px;
+    background-color: #000000;
+    margin-right: 30px;
+    padding: 50px;
+    border-radius: 20%;
+}
+.investment h3{
+    color: rgb(32, 30, 30);
+}
+.inner-values{
+    padding: 10px;
+    color: aliceblue;
+}
+#faq{
+    margin-top: 30px;
+    color: rgb(235, 201, 201);
+    text-align: center;
+}
+.faq{
+    color: rgb(235, 201, 201);
+    text-align: center;
+}
+.faq h3{
+    color: #df8585;
+    font-weight: 600;
+}
+.faq ul li{
+    list-style-type: none;
+}
