@@ -1,5 +1,48 @@
+from flask import Flask, render_template, request, redirect, url_for, flash, session, make_response
+#from flask_sqlalchemy import SQLAlchemy
+  
+app = Flask(__name__)  
+app.secret_key = 'secret-key' # this should be a long, random string  
+# app.config.from_object(Development)
+#db = SQLAlchemy(app)
+#solving working out of application context
+#app.app_context().push()
+
+@app.route('/dashboard', methods=['GET', 'POST'])  
+def dashboard():  
+    #if 'username' in session:  
+      #  username = session['username']  
+        return render_template('index.html')  
+    #else:  
+     #   return redirect(url_for('login'))  
+@app.route('/profitloss', methods=['GET', 'POST'] )
+def profitloss():
+    if request.method == 'POST':
+        investment = request.form['investment']
+        print (investment)
+        buy_price= request.form['buy_price']
+        print(buy_price)
+        sell_price= request.form['sell_price']
+        print(sell_price)
+        investment_fee= request.form['investment_fee']
+        print(investment_fee)
+        exit_fee= request.form['exit_fee']
+        print(exit_fee)
+        sum= (investment, "+" , buy_price)
+        print(sum)
+        #total = total(investment=investment, buy_price=buy_price, sell_price=sell_price, investment_fee=investment_fee, exit_fee=exit_fee)
+        #db.session.add(total)
+        #db.session.commit()
+        #return redirect('/chargestable')"""
+    else:
+           return render_template('profitloss.html')  
+
+     
+if __name__ == '__main__':
+    app.run(debug=True)
+
 # This function adds two numbers
-def add(x, y):
+"""def add(x, y):
     return x + y
 
 # This function subtracts two numbers
@@ -141,3 +184,4 @@ button_equal = tk.Button(master=frame, text="=", padx=15,
 button_equal.grid(row=7, column=0, columnspan=3, pady=2)
  
 window.mainloop()
+"""

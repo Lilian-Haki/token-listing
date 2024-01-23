@@ -107,35 +107,40 @@
 
     <!--profit loss container-->
         <div class="row profit-calculator">
-            <form class="col-md-7 crypto">
+            <form action="/profitloss" method="POST" role="form" class="col-md-7 crypto">
                 <div class="calculator">
                     <div>
                         <label>Investment:</label><br>
                             <span>$</span>
-                            <input class="input1" placeholder="0" formcontrolname="investment" numeric numerictype="decimal" value="0.00" class="">
+                            <input class="input1" name="investment" placeholder="0" formcontrolname="investment" numeric numerictype="decimal" value="0.00">
                     </div>
                     <div class="row">
                     <div class="col-md-6">
                         <label>Buy Price:</label><br>
                             <span class="change-up">$</span>
-                            <input placeholder="0" formcontrolname="buy" numeric numerictype="decimal" value="0.00" class="ng-untouched ng-pristine ng-valid">
+                            <input placeholder="0" name="buy_price" formcontrolname="buy" numeric numerictype="decimal" value="0.00" class="ng-untouched ng-pristine ng-valid">
                     </div>
                     <div class="col-md-6">
                         <label>Sell Price:</label><br>
                             <span class="change-down">$</span>
-                            <input placeholder="0" formcontrolname="sell" numeric numerictype="decimal" value="0.00" class="ng-untouched ng-pristine ng-valid">
+                            <input placeholder="0" name="sell_price" formcontrolname="sell" numeric numerictype="decimal" value="0.00" class="ng-untouched ng-pristine ng-valid">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <label>Investment Fee:</label><br>
                             <span>$</span>
-                            <input placeholder="0" formcontrolname="investmentFee" numeric numerictype="decimal" class="ng-untouched ng-pristine ng-valid">
+                            <input placeholder="0" name="investment_fee" formcontrolname="investmentFee" numeric numerictype="decimal" class="ng-untouched ng-pristine ng-valid">
                     </div>
                     <div class="col-md-6">
                         <label>Exit Fee:</label><br>
                             <span>$</span>
-                            <input placeholder="0" formcontrolname="exitFee" numeric numerictype="decimal" class="ng-untouched ng-pristine ng-valid">
+                            <input placeholder="0" name="exit_fee" formcontrolname="exitFee" numeric numerictype="decimal" class="ng-untouched ng-pristine ng-valid">
+                    </div>
+                    <div class="col-md-6">
+                        <label name="sum">Calculate</label><br>
+                            <span>$</span>
+                            <input type="submit" name="form">
                     </div>
                 </div>
                 </div>
