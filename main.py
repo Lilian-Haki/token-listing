@@ -1,12 +1,36 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session, make_response
-#from flask_sqlalchemy import SQLAlchemy
-  
+from flask_mysqldb import MySQL
+from sqlalchemy import func
+import psycopg2
+
 app = Flask(__name__)  
-app.secret_key = 'secret-key' # this should be a long, random string  
-# app.config.from_object(Development)
-#db = SQLAlchemy(app)
-#solving working out of application context
-#app.app_context().push()
+conn = psycopg2.connect(user="postgres", password="lilian",
+                        host="localhost", port="5432", database="crypto")
+# Open a cursor to perform database operations
+cur = conn.cursor()
+app.config["SECRET_KEY"] = "#lilian"
+
+# Intialize MySQL
+mysql = MySQL(app)
+
+
+"""class Profitloss(db.Model):
+    __tablename__ = 'profitloss'
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    investment = db.Column(db.Integer, nullable=False )
+    buy_price = db.Column(db.Integer, nullable=False)
+    sell_price = db.Column(db.Integer, nullable=False)
+    investment_fee = db.Column(db.Integer, nullable=False)
+    total = db.Column(db.Integer, nullable=False)
+    
+    def insert(self):
+        db.add(self)
+        db.commit()
+
+        return self
+db.create_all()
+"""
 
 @app.route('/dashboard', methods=['GET', 'POST'])  
 def dashboard():  
@@ -28,14 +52,22 @@ def profitloss():
         print(investment_fee)
         exit_fee= request.form['exit_fee']
         print(exit_fee)
-        sum= (investment, "+" , buy_price)
+        profit= int(sell_price) - int(buy_price)
+        print(profit)
+        totalinv= int(investment) + int(buy_price)
+        print(totalinv)
+        totalexit= int(investment) + int(buy_price)
         print(sum)
+
         #total = total(investment=investment, buy_price=buy_price, sell_price=sell_price, investment_fee=investment_fee, exit_fee=exit_fee)
-        #db.session.add(total)
-        #db.session.commit()
-        #return redirect('/chargestable')"""
+        #print(total)
+        cur.execute(
+            "INSERT INTO profitloss (investment,buy_price,sell_price,investment_fee,exit_fee) VALUES(%s,%s,%s,%s,%s)",
+            (investment,buy_price,sell_price,investment_fee,exit_fee),
+        )
+        return redirect('/profitloss')
     else:
-           return render_template('profitloss.html')  
+        return render_template('profitloss.html')  
 
      
 if __name__ == '__main__':
