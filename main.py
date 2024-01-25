@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, session, make_response
+"""from flask import Flask, render_template, request, redirect, url_for, flash, session, make_response
 from flask_mysqldb import MySQL
 from sqlalchemy import func
 import psycopg2
@@ -14,7 +14,7 @@ app.config["SECRET_KEY"] = "#lilian"
 mysql = MySQL(app)
 
 
-"""class Profitloss(db.Model):
+class Profitloss(db.Model):
     __tablename__ = 'profitloss'
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -30,7 +30,7 @@ mysql = MySQL(app)
 
         return self
 db.create_all()
-"""
+
 
 @app.route('/dashboard', methods=['GET', 'POST'])  
 def dashboard():  
@@ -74,7 +74,7 @@ if __name__ == '__main__':
     app.run(debug=True)
 
 # This function adds two numbers
-"""def add(x, y):
+def add(x, y):
     return x + y
 
 # This function subtracts two numbers
